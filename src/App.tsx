@@ -10,7 +10,7 @@ import ContactsPage from "./components/ContactsPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/profile-website">
       <Navigation brandName="My Website!" />
       <Routes>
         <Route path="/" element={<HomePage />} />
