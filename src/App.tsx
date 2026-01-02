@@ -2,9 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import ProjectsPage from "./components/ProjectsPage";
+import ContactsPage from "./components/ContactsPage";
 // Import other page components you'll create
 //import AboutPage from "./components/AboutPage";
-//import ProjectsPage from "./components/ProjectsPage";
 //import FeaturesPage from "./components/FeaturesPage";
 //import PricingPage from "./components/PricingPage";
 
@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
 
         {/* Optional: 404 page */}
         <Route path="*" element={<NotFoundPage />} />

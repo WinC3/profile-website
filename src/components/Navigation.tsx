@@ -11,6 +11,7 @@ const Navigation = ({ brandName = "MyApp" }: NavigationProps) => {
   const navItems = [
     { label: "Home", path: "/" },
     { label: "Projects", path: "/projects" },
+    { label: "Contacts", path: "/contacts" },
   ];
 
   return (

@@ -119,7 +119,10 @@ const AboutMe = () => {
             you'd like to work together!
           </p>
           <div className={styles.ctaButtons}>
-            <a href="/contact" className={`${styles.btn} ${styles.btnPrimary}`}>
+            <a
+              href="/contacts"
+              className={`${styles.btn} ${styles.btnPrimary}`}
+            >
               Contacts
             </a>
             <a
