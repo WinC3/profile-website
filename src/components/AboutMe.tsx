@@ -6,25 +6,6 @@ const AboutMe = () => {
       <div className={styles.container}>
         <h2 className={styles.title}>About Me</h2>
 
-        {/* Hero/Introduction */}
-        <div className={styles.aboutIntro}>
-          <div className={styles.aboutText}>
-            <h3>Hello! I'm Winston</h3>
-            <p>
-              I'm a software developer wanting to make real changes in the
-              world.
-            </p>
-            <p>
-              I specialize in machine learning and backend development,
-              particularly enjoying neural network solutions to complex
-              problems. Currently based in Toronto, Canada.
-            </p>
-          </div>
-          <div className={styles.aboutImage}>
-            <img src="src/assets/react.svg" alt="Winston Chan" />
-          </div>
-        </div>
-
         {/* Skills & Expertise */}
         <div className={styles.skillsSection}>
           <h3 className={styles.sectionTitle}>Skills & Expertise</h3>
