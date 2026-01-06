@@ -104,15 +104,25 @@ const AboutMe = () => {
           <div className={styles.skillsList} ref={skillsRef}>
             {/* First set of skills */}
             {skills.map((skill, index) => (
-              <span key={`first-${index}`} className={styles.skillItem}>
-                {skill}
-              </span>
+              <div key={`first-${index}`} className={styles.skillItem}>
+                <img
+                  src={`/api/placeholder/32/32`}
+                  alt={`${skill} icon`}
+                  className={styles.skillIcon}
+                />
+                <span>{skill}</span>
+              </div>
             ))}
             {/* Duplicate set for infinite loop */}
             {skills.map((skill, index) => (
-              <span key={`second-${index}`} className={styles.skillItem}>
-                {skill}
-              </span>
+              <div key={`second-${index}`} className={styles.skillItem}>
+                <img
+                  src={`/api/placeholder/32/32`}
+                  alt={`${skill} icon`}
+                  className={styles.skillIcon}
+                />
+                <span>{skill}</span>
+              </div>
             ))}
           </div>
         </div>
