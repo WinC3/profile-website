@@ -1,6 +1,102 @@
+import { useState } from "react";
 import "./ContactsPage.css";
 
 const ContactsPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"" | "success" | "error">(
+    ""
+  );
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters long";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus("");
+
+    try {
+      // FormSubmit handles the email sending
+      const form = e.target as HTMLFormElement;
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="contacts-page">
       <div className="contacts-container">
@@ -18,7 +114,23 @@ const ContactsPage = () => {
           {/* Contact Form */}
           <div className="contact-form-section">
             <h2 className="section-title">Send Me a Message</h2>
-            <form className="contact-form">
+            <form
+              className="contact-form"
+              onSubmit={handleSubmit}
+              action="https://formsubmit.co/1636e88ff2e80561a3a0d25e9a5b0a77"
+              method="POST"
+            >
+              {/* FormSubmit configuration */}
+              <input
+                type="hidden"
+                name="_subject"
+                value="New message from your website!"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+
+              {/* Add your actual domain when deployed */}
+              {/* <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" /> */}
               <div className="form-group">
                 <label htmlFor="name" className="form-label">
                   Full Name
@@ -27,10 +139,15 @@ const ContactsPage = () => {
                   type="text"
                   id="name"
                   name="name"
-                  className="form-input"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className={`form-input ${errors.name ? "error" : ""}`}
                   placeholder="Your full name"
                   required
                 />
+                {errors.name && (
+                  <span className="error-message">{errors.name}</span>
+                )}
               </div>
 
               <div className="form-group">
@@ -41,10 +158,15 @@ const ContactsPage = () => {
                   type="email"
                   id="email"
                   name="email"
-                  className="form-input"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={`form-input ${errors.email ? "error" : ""}`}
                   placeholder="your.email@example.com"
                   required
                 />
+                {errors.email && (
+                  <span className="error-message">{errors.email}</span>
+                )}
               </div>
 
               <div className="form-group">
@@ -55,10 +177,15 @@ const ContactsPage = () => {
                   type="text"
                   id="subject"
                   name="subject"
-                  className="form-input"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  className={`form-input ${errors.subject ? "error" : ""}`}
                   placeholder="What's this about?"
                   required
                 />
+                {errors.subject && (
+                  <span className="error-message">{errors.subject}</span>
+                )}
               </div>
 
               <div className="form-group">
@@ -69,14 +196,23 @@ const ContactsPage = () => {
                   id="message"
                   name="message"
                   rows={6}
-                  className="form-textarea"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  className={`form-textarea ${errors.message ? "error" : ""}`}
                   placeholder="Tell me about your project, question, or just say hello!"
                   required
                 ></textarea>
+                {errors.message && (
+                  <span className="error-message">{errors.message}</span>
+                )}
               </div>
 
-              <button type="submit" className="submit-btn">
-                <span>Send Message</span>
+              <button
+                type="submit"
+                className={`submit-btn ${isSubmitting ? "loading" : ""}`}
+                disabled={isSubmitting}
+              >
+                <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                 <svg
                   className="send-icon"
                   viewBox="0 0 24 24"
@@ -86,6 +222,20 @@ const ContactsPage = () => {
                   <path d="m22 2-7 20-4-9-9-4zm0 0-10 10" />
                 </svg>
               </button>
+
+              {submitStatus === "success" && (
+                <div className="form-message success">
+                  ✅ Thank you! Your message has been sent successfully. I'll
+                  get back to you soon!
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="form-message error">
+                  ❌ Sorry, there was an error sending your message. Please try
+                  again or contact me directly via email.
+                </div>
+              )}
             </form>
           </div>
 
