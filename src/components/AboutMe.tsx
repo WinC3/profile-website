@@ -6,17 +6,20 @@ const AboutMe = () => {
   const isInteractingRef = useRef(false); // Track if user is actually touching/dragging
 
   const skills = [
-    "TypeScript / JavaScript",
-    "Python",
-    "Java",
-    "React JS",
-    "HTML5 & CSS3",
-    "C/C#/C++",
-    "RESTful API Integration",
-    "Git & GitHub",
-    "VS Code",
-    "Linux",
-    "Docker",
+    { name: "TypeScript / JavaScript", icon: "typescript.png" },
+    { name: "Python", icon: "python.png" },
+    { name: "Java", icon: "java.png" },
+    { name: "React JS", icon: "react.jpg" },
+    { name: "HTML5", icon: "html.png" },
+    { name: "CSS3", icon: "css.png" },
+    { name: "C/C++", icon: "cpp.png" },
+    { name: "C#", icon: "csharp.png" },
+    { name: "RESTful API Integration", icon: "api.webp" },
+    { name: "Git", icon: "git.png" },
+    { name: "Github", icon: "github.svg" },
+    { name: "VS Code", icon: "vscode.png" },
+    { name: "Linux", icon: "linux.png" },
+    { name: "Docker", icon: "docker.png" },
   ];
 
   useEffect(() => {
@@ -106,22 +109,30 @@ const AboutMe = () => {
             {skills.map((skill, index) => (
               <div key={`first-${index}`} className={styles.skillItem}>
                 <img
-                  src={`/api/placeholder/32/32`}
-                  alt={`${skill} icon`}
+                  src={`/profile-website/skills/${skill.icon}`}
+                  alt={`${skill.name} icon`}
                   className={styles.skillIcon}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "/api/placeholder/32/32";
+                  }}
                 />
-                <span>{skill}</span>
+                <span>{skill.name}</span>
               </div>
             ))}
             {/* Duplicate set for infinite loop */}
             {skills.map((skill, index) => (
               <div key={`second-${index}`} className={styles.skillItem}>
                 <img
-                  src={`/api/placeholder/32/32`}
-                  alt={`${skill} icon`}
+                  src={`/profile-website/skills/${skill.icon}`}
+                  alt={`${skill.name} icon`}
                   className={styles.skillIcon}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src =
+                      "/api/placeholder/32/32";
+                  }}
                 />
-                <span>{skill}</span>
+                <span>{skill.name}</span>
               </div>
             ))}
           </div>
