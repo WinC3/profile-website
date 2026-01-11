@@ -10,7 +10,7 @@ const Navigation = ({ brandName = "MyApp" }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Home", path: "/ " },
+    { label: "Home", path: "/" },
     { label: "Projects", path: "/projects" },
     { label: "Contacts", path: "/contacts" },
   ];
@@ -19,7 +19,7 @@ const Navigation = ({ brandName = "MyApp" }: NavigationProps) => {
     <>
       <nav className={`navbar navbar-expand bg-body-tertiary ${styles.navbar}`}>
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/ ">
+          <Link className="navbar-brand" to="/">
             {brandName}
           </Link>
 
