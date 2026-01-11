@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./AboutMe.module.css";
 
 const AboutMe = () => {
@@ -199,14 +200,14 @@ const AboutMe = () => {
             you'd like to work together!
           </p>
           <div className={styles.ctaButtons}>
-            <a
-              href="/contacts"
+            <Link
+              to="/contacts"
               className={`${styles.btn} ${styles.btnPrimary}`}
             >
               Contacts
-            </a>
+            </Link>
             <a
-              href="/resume.pdf"
+              href="/profile-website/resume.pdf"
               className={`${styles.btn} ${styles.btnSecondary}`}
               target="_blank"
               rel="noopener noreferrer"
