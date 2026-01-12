@@ -11,29 +11,38 @@ const ProjectsPage = () => {
     "All",
     "Web Development",
     "Machine Learning",
-    "Mobile Apps",
-    "Open Source",
+    "Software Engineering",
   ];
 
   const projects = [
     {
-      title: "AI Materials Research Platform",
+      title: "AI Piano Music Transcriber",
       description:
-        "A sophisticated Bayesian optimization platform built for the Acceleration Consortium. Utilizes BoTorch and PyTorch to predict material properties and accelerate research discovery through intelligent campaign selection.",
+        "Neural networks based, CLI app with optional simple GUI for transforming audio of piano music to MIDI formats. Designed and trained my own network architecture with convolutional and recurrent LSTM layers under heavy class imbalance, using precision, recall, and F1 metrics to facilitate training. Build with PyTorch, using Fourier-based CQT transforms for data preprocessing.",
       category: "Machine Learning",
       status: "Completed" as const,
-      imageUrl: "/api/placeholder/500/300",
-      imageAlt: "AI Materials Research Platform",
+      imageUrl: "/api/placeholder/350/200",
+      imageAlt: "Neural Network Classifier",
       technologies: [
         "Python",
         "PyTorch",
-        "BoTorch",
-        "Ax-Platform",
-        "Bayesian Optimization",
+        "NumPy",
+        "CNNs",
+        "LSTMs",
+        "FastAPI",
+        "PyQt",
       ],
       links: {
-        primary: { text: "View Project", href: "#" },
-        secondary: { text: "Source Code", href: "#" },
+        primary: {
+          text: "View Project (CHANGE TO WEB LINK LATER)",
+          href: "https://github.com/WinC3/piano-transcriber",
+          openInNewTab: true,
+        },
+        secondary: {
+          text: "GitHub",
+          href: "https://github.com/WinC3/piano-transcriber",
+          openInNewTab: true,
+        },
       },
       featured: true,
     },
@@ -41,28 +50,17 @@ const ProjectsPage = () => {
       title: "Real-Time Stock Visualizer",
       description:
         "Interactive stock data visualization platform using Twelve Data API with real-time updates, multiple graph types, and user authentication system.",
-      category: "Web Development",
+      category: "Software Engineering",
       status: "Completed" as const,
       imageUrl: "/api/placeholder/350/200",
       imageAlt: "Real-Time Stock Visualizer",
-      technologies: ["Java", "Spring Boot", "REST API", "Clean Architecture"],
+      technologies: ["Java", "REST API", "Clean Architecture", "Swing", "AWT"],
       links: {
-        primary: { text: "Live Demo", href: "#" },
-        secondary: { text: "GitHub", href: "#" },
-      },
-    },
-    {
-      title: "Neural Network Classifier",
-      description:
-        "Custom neural network implementation for image classification with backpropagation and various optimization algorithms. Built from scratch in Python.",
-      category: "Machine Learning",
-      status: "Completed" as const,
-      imageUrl: "/api/placeholder/350/200",
-      imageAlt: "Neural Network Classifier",
-      technologies: ["Python", "NumPy", "Computer Vision", "Deep Learning"],
-      links: {
-        primary: { text: "View Project", href: "#" },
-        secondary: { text: "GitHub", href: "#" },
+        primary: {
+          text: "GitHub",
+          href: "https://github.com/azyx0083/CSC207-WhatEver-46",
+          openInNewTab: true,
+        },
       },
     },
     {
@@ -75,59 +73,15 @@ const ProjectsPage = () => {
       imageAlt: "Portfolio Website",
       technologies: ["React", "TypeScript", "CSS3", "Vite"],
       links: {
-        primary: { text: "Live Site", href: "#" },
-        secondary: { text: "GitHub", href: "#" },
-      },
-    },
-    {
-      title: "Data Analysis Pipeline",
-      description:
-        "Automated data processing pipeline for large-scale analytics with real-time monitoring, error handling, and scalable architecture.",
-      category: "Data Science",
-      status: "Planned" as const,
-      imageUrl: "/api/placeholder/350/200",
-      imageAlt: "Data Analysis Pipeline",
-      technologies: ["Python", "Apache Kafka", "Docker", "PostgreSQL"],
-      links: {
-        primary: { text: "Coming Soon", href: "#" },
-        secondary: { text: "Planning", href: "#" },
-      },
-    },
-    {
-      title: "Mobile Task Manager",
-      description:
-        "Cross-platform mobile application for task management with offline sync, push notifications, and collaborative features.",
-      category: "Mobile Apps",
-      status: "Completed" as const,
-      imageUrl: "/api/placeholder/350/200",
-      imageAlt: "Mobile Task Manager",
-      technologies: ["React Native", "Firebase", "Redux", "SQLite"],
-      links: {
-        primary: { text: "App Store", href: "#" },
-        secondary: { text: "GitHub", href: "#" },
-      },
-    },
-    {
-      title: "ML Utilities Library",
-      description:
-        "Open-source Python library providing common machine learning utilities, preprocessing functions, and model evaluation tools for researchers.",
-      category: "Open Source",
-      status: "In Progress" as const,
-      imageUrl: "/api/placeholder/350/200",
-      imageAlt: "Open Source Library",
-      technologies: ["Python", "PyPI", "Scikit-learn", "Documentation"],
-      links: {
-        primary: { text: "PyPI", href: "#" },
-        secondary: { text: "GitHub", href: "#" },
+        primary: { text: "This Site!", href: "/", openInNewTab: false },
+        secondary: { text: "GitHub", href: "#", openInNewTab: true },
       },
     },
   ];
 
   const stats = [
-    { number: "12+", label: "Projects Completed" },
-    { number: "6", label: "Technologies Mastered" },
-    { number: "3", label: "Open Source Contributions" },
-    { number: "2", label: "Years Experience" },
+    { number: String(projects.length), label: "Projects Completed" },
+    { number: "5", label: "Years Creating Code" },
   ];
 
   const filteredProjects =

@@ -10,8 +10,8 @@ interface ProjectCardProps {
   imageAlt: string;
   technologies: string[];
   links: {
-    primary: { text: string; href: string };
-    secondary: { text: string; href: string };
+    primary: { text: string; href: string; openInNewTab?: boolean };
+    secondary?: { text: string; href: string; openInNewTab?: boolean };
   };
   featured?: boolean;
 }
