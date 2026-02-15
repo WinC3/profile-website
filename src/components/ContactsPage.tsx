@@ -11,12 +11,12 @@ const ContactsPage = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"" | "success" | "error">(
-    ""
+    "",
   );
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -327,33 +327,6 @@ const ContactsPage = () => {
                   GitHub
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Additional Info */}
-        <div className="additional-info">
-          <div className="info-cards">
-            <div className="info-card">
-              <h3>🚀 Open to Opportunities</h3>
-              <p>
-                Currently seeking full-time positions in software development
-                and machine learning roles.
-              </p>
-            </div>
-            <div className="info-card">
-              <h3>💼 Freelance Projects</h3>
-              <p>
-                Available for consulting and freelance projects. Let's discuss
-                your requirements!
-              </p>
-            </div>
-            <div className="info-card">
-              <h3>🤝 Collaboration</h3>
-              <p>
-                Always interested in collaborating on open-source projects and
-                research initiatives.
-              </p>
             </div>
           </div>
         </div>
