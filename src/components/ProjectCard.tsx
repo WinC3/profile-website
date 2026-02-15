@@ -28,7 +28,6 @@ const ProjectCard = ({
   featured = false,
 }: ProjectCardProps) => {
   const cardClass = featured ? "featured-project" : "project-card";
-  const titleTag = featured ? "h2" : "h3";
 
   return (
     <div className={cardClass}>
