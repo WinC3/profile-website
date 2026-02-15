@@ -2,7 +2,7 @@
 .contacts-page {
   min-height: 100vh;
   padding: 4rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #4a4a4a;
   color: #333;
 }
 
@@ -89,8 +89,8 @@
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #5a5a5a;
+  box-shadow: 0 0 0 3px rgba(90, 90, 90, 0.1);
 }
 
 .form-textarea {
@@ -99,7 +99,7 @@
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #444444;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -117,7 +117,7 @@
 
 .submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 10px 25px rgba(80, 80, 80, 0.3);
 }
 
 .submit-btn:active {
@@ -202,7 +202,7 @@
 }
 
 .contact-icon {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #444444;
   color: white;
   width: 50px;
   height: 50px;

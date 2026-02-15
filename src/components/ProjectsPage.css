@@ -2,7 +2,7 @@
 .projects-page {
   min-height: 100vh;
   padding: 4rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #4a4a4a;
   color: #333;
 }
 
@@ -57,7 +57,7 @@
 .filter-btn:hover,
 .filter-btn.active {
   background: rgba(255,255,255,0.9);
-  color: #667eea;
+  color: #5a5a5a;
   border-color: white;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255,255,255,0.2);
@@ -134,7 +134,7 @@
 }
 
 .project-category {
-  color: #667eea;
+  color: #5a5a5a;
   font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -180,23 +180,23 @@
 }
 
 .project-link.primary {
-  background: #667eea;
+  background: #5a5a5a;
   color: white;
 }
 
 .project-link.primary:hover {
-  background: #5a67d8;
+  background: #444444;
   transform: translateY(-2px);
 }
 
 .project-link.secondary {
   background: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+  color: #5a5a5a;
+  border: 2px solid #5a5a5a;
 }
 
 .project-link.secondary:hover {
-  background: #667eea;
+  background: #5a5a5a;
   color: white;
 }
 

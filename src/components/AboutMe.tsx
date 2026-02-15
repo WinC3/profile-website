@@ -155,6 +155,21 @@ const AboutMe = () => {
                 corrections to greatly improve research speeds through campaign
                 runtimes.
               </p>
+              <p>
+                Developed a full stack web application for the consortium using
+                React, TypeScript, FastAPI and PostgreSQL. The application
+                serves as a centralized platform for managing research projects,
+                data visualization, and collaboration among consortium members.
+                It features user authentication, project dashboards, and
+                interactive data visualizations to facilitate efficient research
+                workflows.
+              </p>
+              <p>
+                Leveraged the consortium's High-Performance Computing (HPC)
+                cluster with Slurm through Linux command line to manage and
+                execute large-scale computational tasks, optimizing resource
+                allocation and job scheduling for efficient research operations.
+              </p>
             </div>
             <div className={styles.experienceItem}>
               <h4>Software Developer - University of Toronto</h4>
@@ -180,16 +195,6 @@ const AboutMe = () => {
             particularly enjoy creating music through the piano, and enjoying
             all sorts of foods!
           </p>
-          <div className={styles.interestsGrid}>
-            <div className={styles.interestItem}>
-              <span className={styles.interestIcon}>🎹</span>
-              <span>Piano</span>
-            </div>
-            <div className={styles.interestItem}>
-              <span className={styles.interestIcon}>🍚</span>
-              <span>Food</span>
-            </div>
-          </div>
         </div>
 
         {/* Call to Action */}
